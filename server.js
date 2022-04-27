@@ -9,9 +9,10 @@ let server = app.listen(3000, function(){
     console.log('listening to port 3000.at http://localhost:3000');
 });
 let io = socket(server);
+let pathName = new Date().toString().replace(/[()]/g,"").replace(/-/g,"_").replace(/:/g,"-");;
 //to write to csv file, dont have it open, and open the browser 
 const csvWriter = createCsvWriter({
-    path: 'exampleHandData.csv',
+    path: pathName+'.csv',
     header: [
         {id: 'timeStamp', title: 'Time stamp'},
         {id: 'handPalmx', title: 'Hand palm positionX'},
@@ -236,6 +237,6 @@ Collection of detected/tracked hands, where each hand is represented as a list o
 
 multi_hand_world_landmarks
 
-Collection of detected/tracked hands, where each hand is represented as a list of 21 hand landmarks in world coordinates. Each landmark is composed of x, y and z: real-world 3D coordinates in meters with the origin at the hand’s approximate geometric center.
+Collection of detected/tracked hands, where each hand is represented as a list of 21 hand landmarks in world coordinates. Each landmark is composed of x, y and z: real-world 3D coordinates in meters with the origin at the handâ€™s approximate geometric center.
 
 */
